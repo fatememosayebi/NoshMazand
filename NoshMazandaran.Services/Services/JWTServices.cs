@@ -41,7 +41,7 @@ namespace NoshMazandaran.Services
                 NotBefore = DateTime.Now,
                 Expires = DateTime.Now.AddHours(_siteSettings.JwtSettings.ExpirationMinutes),
                 SigningCredentials = signingCredentials,
-                EncryptingCredentials = encryptingCredentials,
+                //EncryptingCredentials = encryptingCredentials,
                 Subject = new ClaimsIdentity(claims)
             };
 
