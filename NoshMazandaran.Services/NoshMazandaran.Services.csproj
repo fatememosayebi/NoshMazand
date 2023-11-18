@@ -15,4 +15,8 @@
     <ProjectReference Include="..\NoshMazandaran.Data\NoshMazandaran.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Auth\Login\" />
+  </ItemGroup>
+
 </Project>

@@ -53,15 +53,15 @@ const Company = () => {
     const [list, setList] = useState([]);
     const getList = () => {
         setLoading(true)
-        post('ClearanceBroker/getAll', {})
+        post('Company/get', {})
             .then(x => {
                 setList(x)
             }).finally(x => setLoading(false))
     }
 
-    //useEffect(() => {
-    //    getList()
-    //}, [])
+    useEffect(() => {
+        getList()
+    }, [])
 
 
     const PAGE_SIZES = [10, 20, 30, 50, 100];

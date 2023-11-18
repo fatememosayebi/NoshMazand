@@ -9,6 +9,7 @@ namespace NoshMAzandaran.Api.Models
         public string Password { get; set; }
         public string FullName { get; set; }
         public GenderType Gender { get; set; }
+        public int MyProperty { get; set; }
 
         /// <summary>
         /// dar in ghesmat validate haye buisinessiye prj anjam mishe

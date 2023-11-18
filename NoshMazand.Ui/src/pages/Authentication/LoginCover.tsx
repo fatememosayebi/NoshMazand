@@ -24,8 +24,8 @@ const LoginCover = () => {
                 <div className="w-full mx-auto mb-5">
                     <GiCutDiamond className="text-9xl mx-auto text-white shadow-primary/60" />
                 </div>
-                <h3 className="text-4xl font-extralight mb-4 text-white text-center">الماس</h3>
-                <p className=''>بلانتون</p>
+                <h3 className="text-4xl font-extralight mb-4 text-white text-center">نوش مازندران</h3>
+                
             </div>
 
             <div className="w-full lg:w-1/3 relative flex justify-center items-center">
