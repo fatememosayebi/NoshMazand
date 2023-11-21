@@ -36,6 +36,10 @@ builder.Services.AddElmah<SqlErrorLog>(options =>
     options.Path = "/elmah/errors";
     options.ConnectionString=builder.Configuration.GetConnectionString("SqlServer");
 });
+builder.Services.Configure<ApiBehaviorOptions>(options =>
+{
+    options.SuppressModelStateInvalidFilter = true;
+});
 builder.Services.AddDbContext<Db>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer")));
 
@@ -70,6 +74,7 @@ else
     ///* soal daram 
     app.UseExceptionHandler();
 }
+app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());///in line
 app.UseElmah();
 app.UseRouting();
 app.UseHttpsRedirection();

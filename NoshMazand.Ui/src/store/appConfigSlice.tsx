@@ -17,18 +17,18 @@ const appConfigSlice = createSlice({
     name: 'app',
     initialState: initialState,
     reducers: {
-        login(state, { payload }) {
-            console.log('in login reducers')
+        login(state,  data) {
+            //console.log('in login reducers',token)
             state.logedIn=true
-            state.userName=payload.userName,
-            state.title=payload.title;
-            state.menus=payload.menus
-            state.roles= payload.roles
-            localStorage.setItem('token', payload.token.tokenValue);
-            localStorage.setItem('userName', payload.userName);
-            localStorage.setItem('title', payload.title);
-            localStorage.setItem('menus', JSON.stringify(payload.menus || []));
-            localStorage.setItem('roles', JSON.stringify(payload.roles || []));
+            // state.userName=payload.userName,
+            // state.title=payload.title;
+            // state.menus=payload.menus
+            //state.roles= payload.roles
+            localStorage.setItem('token', data.payload.token);
+            //localStorage.setItem('userName', payload.userName);
+            //localStorage.setItem('title', payload.title);
+            //localStorage.setItem('menus', JSON.stringify(payload.menus || []));
+            //localStorage.setItem('roles', JSON.stringify(payload.roles || []));
         },
         logout() {
             

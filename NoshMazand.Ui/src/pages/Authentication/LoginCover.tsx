@@ -12,7 +12,7 @@ const LoginCover = () => {
         dispatch(setPageTitle('ورود'));
     });
     const [userName, setUserName] = useState<string>()
-    const [pass, setPass] = useState<string>()
+    const [passWord, setPass] = useState<string>()
     const [loading, setLoading] = useState(false)
     const navigate = useNavigate();
     const alert = useAlert()
@@ -25,7 +25,6 @@ const LoginCover = () => {
                     <GiCutDiamond className="text-9xl mx-auto text-white shadow-primary/60" />
                 </div>
                 <h3 className="text-4xl font-extralight mb-4 text-white text-center">نوش مازندران</h3>
-                
             </div>
 
             <div className="w-full lg:w-1/3 relative flex justify-center items-center">
@@ -41,7 +40,7 @@ const LoginCover = () => {
                         <div>
                             <label htmlFor="password">رمز عبور</label>
                             <input id="password" type="password" className="form-input" placeholder=""
-                                value={pass} onChange={e => setPass(e.target.value)} />
+                                value={passWord} onChange={e => setPass(e.target.value)} />
                         </div>
                         <div>
                             <label className="cursor-pointer">
@@ -52,8 +51,10 @@ const LoginCover = () => {
                         <button disabled={loading} type="submit" className="btn btn-primary w-full" onClick={e => {
                             e.preventDefault()
                             setLoading(true);
-                            post('auth/login', { userName, pass, info: rdd }).then((x: object) => {
-                                console.log('vvvvvvvvvvv', x)
+                            post('auth/login', { userName, passWord })
+                            .then((x: object) => {
+                                debugger
+                                console.log('v2', x)
                                 dispatch(login(x));
                                 navigate('/')
                             }).finally(() => {

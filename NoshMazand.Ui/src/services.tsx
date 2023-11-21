@@ -74,7 +74,7 @@ export function usePost() {
                 if (withMessage && res.data.isSuccess)
                     showAlert(res.data.message, '');
                 if (res.data.isSuccess)
-                    return res.data.payload;
+                    return res.data.data;
                 return null
             } else {
                 var error = new Error(res.statusText)
@@ -143,7 +143,7 @@ export function useGet() {
                 if (withMessage && res.data.isSuccess)
                     showAlert('success', res.data.message);
                 if (res.data.isSuccess)
-                    return res.data.payload;
+                    return res.data.data;
                 return null
             } else {
                 var error = new Error(res.statusText)
@@ -229,7 +229,7 @@ export function usePostFile() {
                     if (withMessage && res.data.isSuccess)
                         showAlert('success', res.data.message);
                     if (res.data.isSuccess)
-                        return res.data.payload;
+                        return res.data.data;
                     return null
                 } else {
                     var error = new Error(res.statusText)

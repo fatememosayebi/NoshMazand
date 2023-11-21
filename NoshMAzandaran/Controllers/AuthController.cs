@@ -13,22 +13,22 @@ namespace NoshMAzandaran.Api.Controllers
     [ApiController]
     public class AuthController:ControllerBase
     {
-        private readonly UserRepository repository;
+        private readonly IUserRepository repository;
         private readonly IJWTServices jwtServices;
-        public AuthController(UserRepository repository, IJWTServices jwtServices)
+        public AuthController(IUserRepository repository, IJWTServices jwtServices)
         {
             this.repository = repository;
             this.jwtServices = jwtServices;
         }
-        [HttpGet("[action]")]
+        [HttpPost("[action]")]
         [AllowAnonymous]
-        public async Task<string> Login(UserDto userDto, CancellationToken cancellationToken)
+        public async Task<ActionResult> Login(AuthDto authDto, CancellationToken cancellationToken)
         {
-            var user = await repository.GetByUserAndPass(userDto.UserName, userDto.Password, cancellationToken);
+            var user = await repository.GetByUserAndPass(authDto.UserName, authDto.Password, cancellationToken);
             if (user == null)
                 throw new BadHttpRequestException("این کاربر وجود ندارد");
             var jwt = jwtServices.Generate(user);
-            return jwt;
+            return Ok(new { token = jwt });
         }
     }
 }
